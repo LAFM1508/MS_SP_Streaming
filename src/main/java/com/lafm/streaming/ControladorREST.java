@@ -20,15 +20,15 @@ import java.util.List;
 public class ControladorREST {
 	
 	@RequestMapping(value = "/videos", method = RequestMethod.GET)
-	public List<String> listVideos() {
+	public ResponseJSON<List<String>> listVideos() {
 		
 		List<String> lista = new ArrayList<String>();
 		
 		lista.add("prueba");
 		lista.add("prueba1");
 		lista.add("prueba2");
-
-		return lista;
+		
+		return new ResponseJSON<List<String>>(true, "Success", lista);
 	}
 	
 	@RequestMapping(value = "/video", method = RequestMethod.GET)
